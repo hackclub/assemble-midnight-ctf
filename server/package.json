@@ -8,6 +8,7 @@
     "dev": "tsnd --respawn --exit-child --clear src/index.ts"
   },
   "dependencies": {
+    "redis": "^4.2.0",
     "socket.io": "^4.5.1"
   },
   "devDependencies": {

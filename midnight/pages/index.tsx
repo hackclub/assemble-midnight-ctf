@@ -1,24 +1,42 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import Intro from "../components/Intro";
-import { useSocket } from "../lib/socketContext";
+import Join from "../components/Join";
+import { useServerState, useSocket } from "../lib/socketContext";
+import { CgLoadbar } from "react-icons/cg";
+import Game from "../components/Game";
 
 const Home: NextPage = () => {
-  const [socket, connected] = useSocket();
-  const [gameState, setGameState] = useState<any>();
+  const [socket, connected, state] = useSocket();
+  const [joined, setJoined] = useState(false);
+
+  const join = (name: string) => {
+    socket?.emit("join", name);
+  };
 
   useEffect(() => {
-    if (connected && socket) {
+    const onHello = () => setJoined(true);
+
+    if (connected) {
       console.log("Connected to server");
-      socket.on("update", setGameState);
+      socket?.on("hello", onHello);
     }
+
+    return () => {
+      socket?.off("hello", onHello);
+    };
   }, [connected, socket]);
 
   return (
-    <div className="flex items-center justify-center p-8">
-      {gameState && <>{gameState.stage === "intro" && <Intro />}</>}
+    <div className="h-screen flex items-center justify-center p-8">
+      {!connected && <CgLoadbar size={30} className="animate-spin" />}
+      {connected && !joined && <Join onSetName={join} />}
+      {joined && connected && (
+        <>
+          {state.stage === "intro" && <Intro />}
+          {state.stage === "game" && <Game />}
+        </>
+      )}
     </div>
   );
 };
