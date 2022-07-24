@@ -4,7 +4,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        // ALL THE MONOS
         primary: ["VT323", "monospace"],
+        secondary: ["Share Tech Mono", "monospace"],
         heading: ["Major Mono Display", "monospace"],
       },
     },

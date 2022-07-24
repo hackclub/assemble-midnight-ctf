@@ -5,19 +5,28 @@ import Join from "../components/Join";
 import { useServerState, useSocket } from "../lib/socketContext";
 import { CgLoadbar } from "react-icons/cg";
 import Game from "../components/Game";
+import { nanoid } from "nanoid";
 
 const Home: NextPage = () => {
   const [socket, connected, state] = useSocket();
   const [joined, setJoined] = useState(false);
 
-  const join = (name: string) => {
-    socket?.emit("join", name);
+  const join = (name?: string, existingId?: string) => {
+    const id = existingId || nanoid();
+    localStorage.setItem("p_id", id);
+    socket?.emit("join", {
+      name,
+      id,
+    });
   };
 
   useEffect(() => {
     const onHello = () => setJoined(true);
 
     if (connected) {
+      const pId = localStorage.getItem("p_id");
+      if (pId) join(undefined, pId);
+
       console.log("Connected to server");
       socket?.on("hello", onHello);
     }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { formatTime } from "../lib/util";
 
 const Clock = ({ end }: { end: number }) => {
-  const [time, setTime] = useState(1000 * 60 * 60);
+  const [time, setTime] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -13,11 +13,11 @@ const Clock = ({ end }: { end: number }) => {
     return () => clearInterval(interval);
   }, [end]);
 
-  const danger = time < 1000 * 60 * 5;
+  const danger = time !== null && time < 1000 * 60 * 5;
 
   return (
-    <div className={clsx("text-9xl", danger && "text-red-600")}>
-      {formatTime(time)}
+    <div className={clsx("text-7xl font-heading", danger && "text-red-600")}>
+      {time === null ? "--:--" : formatTime(time)}
     </div>
   );
 };
