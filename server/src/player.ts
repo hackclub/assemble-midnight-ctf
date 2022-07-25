@@ -24,7 +24,7 @@ export default class Player {
         // kinda overcomplicated this and could just use name as id
         this.playerId = id;
         this.playerName =
-          (await getPlayerName(id)) || name?.trim().slice(0, 15);
+          (await getPlayerName(id)) || name?.trim().slice(0, 20);
 
         if (!this.playerName) {
           console.log(`❗️ Player ${id} missing name, resetting client`);

@@ -13,7 +13,7 @@ import { getGameState, setGameState } from "./state";
 
 const minToMs = (time: number) => time * 60 * 1000;
 export default class Game {
-  // TODO ACTUAL START TIME
+  // TODO START TIME NOT DEPENDENT ON SERVER START TIME
   gameStartTime = Date.now() + minToMs(INTRO_DURATION_MINS);
   gameEndTime = this.gameStartTime + minToMs(GAME_DURATION_MINS);
 
@@ -30,13 +30,19 @@ export default class Game {
       this.players.push(new Player(this, socket));
     });
 
-    setGameState({
-      stage: "intro",
-      endTime: this.gameStartTime,
-      content: INTRO_LETTER,
-    });
+    this.initState();
 
     console.log(`🤖 Initialized server`);
+  }
+
+  private async initState() {
+    const s = await getGameState();
+    if (!s)
+      setGameState({
+        stage: "intro",
+        endTime: this.gameStartTime,
+        content: INTRO_LETTER,
+      });
   }
 
   public async emitState() {
