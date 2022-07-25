@@ -5,7 +5,10 @@
   "author": "Benjamin Ashbaugh",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --respawn --exit-child --clear src/index.ts"
+    "dev": "tsnd --respawn --exit-child --clear src/index.ts",
+    "gen-flag": "node -e \"console.log(require('crypto').randomBytes(16).toString('hex'))\"",
+    "reset-game": "redis-cli flushall",
+    "new-game": "yarn reset-game && yarn dev"
   },
   "dependencies": {
     "redis": "^4.2.0",

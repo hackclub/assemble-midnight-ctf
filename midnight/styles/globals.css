@@ -12,6 +12,6 @@
   }
 
   .content p {
-    @apply my-2;
+    @apply my-3;
   }
 }

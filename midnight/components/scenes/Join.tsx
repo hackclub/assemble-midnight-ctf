@@ -46,7 +46,7 @@ const Join = ({ onSetName }: { onSetName: (name: string) => void }) => {
           name ? "opacity-100" : "opacity-0"
         )}
       >
-        {`You can't change your name later.`}
+        {`You CANNOT change your chosen name later.`}
       </p>
     </div>
   );
