@@ -14,4 +14,8 @@
   .content p {
     @apply my-3;
   }
+
+  .content code {
+    @apply font-primary text-pink-200;
+  }
 }

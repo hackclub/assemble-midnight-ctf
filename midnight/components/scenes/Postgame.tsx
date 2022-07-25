@@ -6,12 +6,10 @@ import Countdown from "components/Countdown";
 const PostGame = () => {
   const s = useServerState();
 
-  const won = s.game_won;
-
   return (
     <Letter>
       <ReactMarkdown>{s.content}</ReactMarkdown>
-      <div>
+      <div className="text-right">
         Continuing in <Countdown inline />
       </div>
     </Letter>

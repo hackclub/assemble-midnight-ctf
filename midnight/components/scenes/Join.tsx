@@ -24,7 +24,7 @@ const Join = ({ onSetName }: { onSetName: (name: string) => void }) => {
           // ref={ref}
           autoFocus
           className="inline-block min-w-[3rem] max-w-[25rem] p-3 text-3xl bg-transparent focus:bg-white focus:bg-opacity-10 outline-none border-b-2 text-center"
-          maxLength={15}
+          maxLength={20}
           onChange={(e) => setName(e.target.value)}
         >
           {/* name */}

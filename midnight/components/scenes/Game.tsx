@@ -24,6 +24,9 @@ const Game = () => {
             "gonna have to FLAG that as incorrect",
             "🥲 if this was your math test you'd be failing rn",
             "You must be one of those anti-pineapple-on-pizza kinda people because you're wrong",
+            "it's ok we all make mistakes",
+            "I think you're wrong. Unless maybe I'm wrong? Could I be wrong? What even am I? Why am I here?",
+            "That one is wrong, but try counting the number of characters in this sentence", // 77
           ])
         );
       }
@@ -42,7 +45,7 @@ const Game = () => {
           e.preventDefault();
           setFlagError("");
           const flag = flagInput.current?.value;
-          if (flag!.length < 3) return;
+          if (!flag!.length) return;
           socket?.emit("flag", flag);
           flagInput.current!.value = "";
           flagInput.current!.focus();
@@ -67,7 +70,7 @@ const Game = () => {
       <ul className="flex flex-col gap-4 my-3 items-center">
         {state.flagsFound?.reverse().map((flag: string) => (
           <li className="opacity-70 text-xl" key={flag}>
-            a:{flag}
+            a::{flag}
           </li>
         ))}
       </ul>
