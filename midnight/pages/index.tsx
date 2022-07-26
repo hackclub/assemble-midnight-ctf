@@ -10,6 +10,7 @@ import PostGame from "../components/scenes/Postgame";
 import Head from "next/head";
 import PreEvent from "components/scenes/PreEvent";
 import clsx from "clsx";
+import Endgame from "components/scenes/Endgame";
 
 const Home: NextPage = () => {
   const [socket, connected, state] = useSocket();
@@ -80,6 +81,7 @@ const Home: NextPage = () => {
           {state.stage === "intro" && <Intro />}
           {state.stage === "game" && <Game />}
           {state.stage === "postgame" && <PostGame />}
+          {state.stage === "endgame" && <Endgame />}
         </>
       )}
     </div>

@@ -1,6 +1,6 @@
 export const INTRO_DURATION_MINS = 0.2;
-export const POSTGAME_DURATION_MINS = 1;
 export const GAME_DURATION_MINS = 45;
+export const POSTGAME_DURATION_MINS = 0.2;
 
 export const FLAG_PREFIX = "a::";
 

@@ -1,6 +1,5 @@
 import { Server } from "socket.io";
 import Game from "./game";
-import redis from "./redis";
 
 const io = new Server(4000, {
   cors: {

@@ -82,7 +82,7 @@ export default class Game {
   }
 
   private async beginGame() {
-    console.log(`🟨🟨🟨 Starting game 🟨🟨🟨`);
+    console.log(`🟢🟢🟢 Starting game 🟢🟢🟢`);
     await setGameState({
       stage: "game",
       endTime: this.gameEndTime,
@@ -94,15 +94,30 @@ export default class Game {
 
   private async moveToPostGame() {
     const s = await getGameState();
-    const won = s.flagsFound.length >= FLAGS.length;
-    console.log(`🟨🟨🟨 GAME OVER 🟨🟨🟨 : PLAYERS ${won ? "WIN" : "LOSE"}`);
 
-    const postgameEndTime = Date.now() + POSTGAME_DURATION_MINS * 60 * 1000;
+    const won =
+      s.flagsFound.length >= FLAGS.length ||
+      s.flagsFound.includes(`__secretdevflag_win`);
+
+    console.log(
+      `🔴🔴🔴 GAME OVER 🔴🔴🔴 : Players ${won ? "win 🥳🥳🥳" : "lose 🪦"}`
+    );
+
+    const postgameStartTime = Date.now() + minToMs(POSTGAME_DURATION_MINS);
     await setGameState({
       stage: "postgame",
       content: won ? POSTGAME_LETTER_WIN : POSTGAME_LETTER_LOSE,
-      endTime: postgameEndTime,
+      endTime: postgameStartTime,
       game_won: won,
+    });
+    setTimeout(() => this.beginEndgame(), minToMs(POSTGAME_DURATION_MINS));
+    this.emitState();
+  }
+
+  private async beginEndgame() {
+    console.log(`❓❓ ENDGAME`);
+    await setGameState({
+      stage: "endgame",
     });
     this.emitState();
   }
