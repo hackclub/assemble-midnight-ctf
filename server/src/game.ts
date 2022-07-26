@@ -1,5 +1,6 @@
 import type { Server } from "socket.io";
 import {
+  FLAGINFO,
   FLAGS,
   GAME_DURATION_MINS,
   INTRO_DURATION_MINS,
@@ -9,12 +10,13 @@ import {
   POSTGAME_LETTER_WIN,
 } from "./config";
 import Player from "./player";
-import { getGameState, setGameState } from "./state";
+import { getFlagFinderNames, getGameState, setGameState } from "./state";
 
 const minToMs = (time: number) => time * 60 * 1000;
 export default class Game {
-  // TODO START TIME NOT DEPENDENT ON SERVER START TIME
-  gameStartTime = Date.now() + minToMs(INTRO_DURATION_MINS);
+  // eventStartTime = new Date("2022-07-25T17:52:00").getTime();
+  eventStartTime = Date.now() + 2000;
+  gameStartTime = this.eventStartTime + minToMs(INTRO_DURATION_MINS);
   gameEndTime = this.gameStartTime + minToMs(GAME_DURATION_MINS);
 
   players: Player[] = [];
@@ -39,17 +41,22 @@ export default class Game {
     const s = await getGameState();
     if (!s)
       setGameState({
-        stage: "intro",
-        endTime: this.gameStartTime,
-        content: INTRO_LETTER,
+        stage: null,
+        eventStarted: false,
       });
   }
 
   public async emitState() {
     const s = await getGameState();
 
+    const finderNames = await getFlagFinderNames();
     this.io.emit("update", {
       ...s,
+      // Include additional info with flags
+      flagsFound: s.flagsFound?.map((flag) => ({
+        ...FLAGINFO[flag],
+        finder: finderNames[flag] || "",
+      })),
       time: Date.now(),
     });
   }
@@ -60,6 +67,18 @@ export default class Game {
 
     if (n > this.gameEndTime && s?.stage === "game") this.moveToPostGame();
     else if (n > this.gameStartTime && s?.stage === "intro") this.beginGame();
+    else if (n > this.eventStartTime && !s?.stage) this.beginEvent();
+  }
+
+  private async beginEvent() {
+    console.log(`⏰⚡️ MIDNIGHT`);
+    await setGameState({
+      stage: "intro",
+      eventStarted: true,
+      endTime: this.gameStartTime,
+      content: INTRO_LETTER,
+    });
+    this.emitState();
   }
 
   private async beginGame() {

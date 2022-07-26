@@ -4,7 +4,7 @@
 
 @layer base {
   html, body {
-    @apply bg-black text-white font-primary;
+    @apply font-primary bg-black text-white m-0 p-0;
   }
 
   h1, h2, h3, h4, h5, h6 {

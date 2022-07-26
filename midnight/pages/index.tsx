@@ -7,13 +7,16 @@ import { CgLoadbar } from "react-icons/cg";
 import Game from "../components/scenes/Game";
 import { nanoid } from "nanoid";
 import PostGame from "../components/scenes/Postgame";
+import Head from "next/head";
+import PreEvent from "components/scenes/PreEvent";
+import clsx from "clsx";
 
 const Home: NextPage = () => {
   const [socket, connected, state] = useSocket();
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
-    console.log(`There are no clues here. Don't waste your time. (probably)`);
+    console.log(`Hi there`);
   }, []);
 
   const join = (name?: string, existingId?: string) => {
@@ -46,15 +49,32 @@ const Home: NextPage = () => {
     };
   }, [connected, socket]);
 
+  const pageTitle =
+    {
+      intro: "🔴 Welcome to Midnight 🔴",
+      game: "3897",
+      postgame: "??",
+    }[state?.stage as string] || "⠀";
+
   return (
-    <div className="h-screen flex items-center justify-center p-8">
+    <div
+      className={clsx(
+        "h-screen flex items-center justify-center p-8",
+        !state?.eventStarted && "bg-white text-black"
+      )}
+    >
+      <Head>
+        <title>{pageTitle}</title>
+      </Head>
+
       {!connected && (
-        <div className="text-sm flex flex-col items-center gap-2">
+        <div className="text-sm flex flex-col items-center gap-2 font-sans">
           <CgLoadbar size={30} className="animate-spin" />
           reload if this takes too long
         </div>
       )}
-      {connected && !joined && <Join onSetName={join} />}
+      {connected && !state?.eventStarted && <PreEvent />}
+      {connected && !joined && state?.eventStarted && <Join onSetName={join} />}
       {joined && connected && (
         <>
           {state.stage === "intro" && <Intro />}

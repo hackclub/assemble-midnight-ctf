@@ -49,6 +49,7 @@ export default class Player {
       )
         .trim()
         .toLowerCase();
+
       if (FLAGS.includes(flag)) {
         await pushFlag(this.playerId, flag);
         const flagsFound = await getFlags();

@@ -46,7 +46,7 @@ const Join = ({ onSetName }: { onSetName: (name: string) => void }) => {
           name ? "opacity-100" : "opacity-0"
         )}
       >
-        {`You CANNOT change your chosen name later.`}
+        {`You CANNOT change your chosen name later. Use your slack or real name`}
       </p>
     </div>
   );
