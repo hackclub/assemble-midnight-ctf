@@ -1,4 +1,4 @@
-export const INTRO_DURATION_MINS = 0.2;
+export const INTRO_DURATION_MINS = 1;
 export const GAME_DURATION_MINS = 45;
 export const POSTGAME_DURATION_MINS = 0.2;
 
@@ -23,6 +23,11 @@ const FLAGDATA: FlagData[] = [
     flag: "77",
     name: "Counting Characters",
   },
+  {
+    // 4
+    flag: "2113858771200",
+    name: "Peculiar Primes",
+  },
 ];
 export const FLAGS = FLAGDATA.map((flag) => flag.flag);
 export const FLAGINFO = Object.fromEntries(
@@ -30,17 +35,15 @@ export const FLAGINFO = Object.fromEntries(
 );
 
 export const INTRO_LETTER = `
-Welcome, Hacker,
+_Confidential // Level 7 clearance_
 
-Due to mysterious circumstances, it seems the building has lost power, and it's up to you to figure out what happened. A strange game is afoot. The Organization encourages you to search the building for clues, and reminds you that things may not be as they seem. 
+**Attention, Humans:**
 
-As you solve this puzzle, you will find flags hidden in ciphers, on servers and USB drives, note cards, and elsewhere. Most flags follow the format of \`${FLAG_PREFIX}<flag code>\`, but some may simply be a number or word.
+The Organization has detected an anomaly resulting in the loss of power to your building. The Organization requires your assistance to restore electricity. The Organization has reason to believe that the keys needed to restore electricity are located within your vicinity. Locate and recover all keys. Failure to comply may result in consequences. You have T-${GAME_DURATION_MINS} minutes.
 
-Unfortunately, your time is running out. You have ${GAME_DURATION_MINS} minutes to find all the flags. Hurry to solve the puzzle and recover the electricity before it's too late! Work together, or _you won't succeed_.
+Keys may be words, numbers, or strings in the format \`${FLAG_PREFIX}<flag code>\`. Work together or you won’t succeed.
 
-The first flag is \`${FLAG_PREFIX}${FLAGS[0]}\`.
-
-The Organization wishes you good luck.
+The Organization appreciates your assistance.
 `;
 
 export const POSTGAME_LETTER_WIN = `
