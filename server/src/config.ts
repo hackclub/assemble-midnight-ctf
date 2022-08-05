@@ -11,10 +11,10 @@ interface FlagData {
 }
 
 const FLAGDATA: FlagData[] = [
-  // {
-  //   flag: "6e59fb2479a2153e33c35755f0594f47",
-  //   name: "First Flag",
-  // },
+  {
+    flag: "92f6cc7389a30529e43d353fb0f777a0",
+    name: "Email",
+  },
   {
     // Easter egg error message clue
     flag: "77",
