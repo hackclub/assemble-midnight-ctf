@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "tsnd --respawn --exit-child --clear src/index.ts",
     "build": "tsc",
-    "postinstall": "yarn && yarn build",
+    "postinstall": "yarn build",
     "start": "NODE_ENV=production node build/index.js",
     "gen-flag": "node -e \"console.log(require('crypto').randomBytes(16).toString('hex'))\"",
     "reset-game": "redis-cli flushall",
