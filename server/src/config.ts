@@ -1,4 +1,4 @@
-export const INTRO_DURATION_MINS = 1;
+export const INTRO_DURATION_MINS = 0.3;
 export const GAME_DURATION_MINS = 45;
 export const POSTGAME_DURATION_MINS = 0.2;
 
@@ -11,14 +11,14 @@ interface FlagData {
 }
 
 const FLAGDATA: FlagData[] = [
-  {
-    flag: "6e59fb2479a2153e33c35755f0594f47",
-    name: "First Flag",
-  },
-  {
-    flag: "92f6cc7389a30529e43d353fb0f777a0",
-    name: "Secret Screenshot",
-  },
+  // {
+  //   flag: "6e59fb2479a2153e33c35755f0594f47",
+  //   name: "First Flag",
+  // },
+  // {
+  //   flag: "92f6cc7389a30529e43d353fb0f777a0",
+  //   name: "Secret Screenshot",
+  // },
   {
     flag: "77",
     name: "Counting Characters",
