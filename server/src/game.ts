@@ -12,10 +12,14 @@ import {
 import Player from "./player";
 import { getFlagFinderNames, getGameState, setGameState } from "./state";
 
+// 2022-07-25T17:52:00
+const START_TIME = process.env.EVENT_START_TIME;
+
 const minToMs = (time: number) => time * 60 * 1000;
 export default class Game {
-  // eventStartTime = new Date("2022-07-25T17:52:00").getTime();
-  eventStartTime = Date.now() + 2000;
+  eventStartTime = START_TIME
+    ? new Date(START_TIME).getTime()
+    : Date.now() + 4000;
   gameStartTime = this.eventStartTime + minToMs(INTRO_DURATION_MINS);
   gameEndTime = this.gameStartTime + minToMs(GAME_DURATION_MINS);
 
@@ -35,6 +39,7 @@ export default class Game {
     this.initState();
 
     console.log(`🤖 Initialized server`);
+    console.log(`🕓 Starting ${new Date(this.eventStartTime)}`);
   }
 
   private async initState() {

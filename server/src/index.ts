@@ -9,3 +9,7 @@ const io = new Server(4000, {
 });
 
 const game = new Game(io);
+
+if (process.env.NODE_ENV === "production") {
+  console.log("🚀 PROD");
+}

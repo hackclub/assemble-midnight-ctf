@@ -53,6 +53,7 @@ export default class Player {
       const isCheatFlag =
         process.env.NODE_ENV !== "production" &&
         flag.startsWith("__secretdevflag");
+
       if (FLAGS.includes(flag) || isCheatFlag) {
         await pushFlag(this.playerId, flag);
         const flagsFound = await getFlags();
