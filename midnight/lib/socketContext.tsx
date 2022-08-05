@@ -15,7 +15,7 @@ export default function SocketProvider({
   const [connected, setConnected] = useState(false);
 
   useEffect(() => {
-    const s = io("http://localhost:4000");
+    const s = io(process.env.NEXT_PUBLIC_SOCKET_URL || "http://localhost:4000");
     setSocket(s);
     s.on("connect", () => {
       setConnected(true);
