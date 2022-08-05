@@ -53,7 +53,7 @@ const Home: NextPage = () => {
   const pageTitle =
     {
       intro: "🔴 Welcome to Midnight 🔴",
-      game: "3897",
+      game: "pass=3897",
       postgame: "??",
     }[state?.stage as string] || "⠀";
 

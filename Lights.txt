@@ -1,0 +1,15 @@
+Beforehand
+- Apex end 
+- Left bathrooms
+- Meeting rooms
+- Back rooms/corridor
+- Kitchen
+- Makerspace
+
+Midnight
+- Apex right
+- Apex left
+- Left corridor front
+- Right corridor back
+- Right corridor front
+- Entrance

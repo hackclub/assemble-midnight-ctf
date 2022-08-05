@@ -107,10 +107,10 @@ export default class Game {
     await setGameState({
       stage: "postgame",
       content: won ? POSTGAME_LETTER_WIN : POSTGAME_LETTER_LOSE,
-      endTime: postgameStartTime,
+      // endTime: postgameStartTime,
       game_won: won,
     });
-    setTimeout(() => this.beginEndgame(), minToMs(POSTGAME_DURATION_MINS));
+    // setTimeout(() => this.beginEndgame(), minToMs(POSTGAME_DURATION_MINS));
     this.emitState();
   }
 

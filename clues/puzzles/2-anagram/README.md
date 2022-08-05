@@ -1,0 +1,3 @@
+# Anagram
+
+SOLUTION: `a::figma`

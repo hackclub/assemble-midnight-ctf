@@ -10,7 +10,7 @@ const PostGame = () => {
     <Letter>
       <ReactMarkdown>{s.content}</ReactMarkdown>
       <div className="text-right">
-        Continuing in <Countdown inline />
+        {/* Continuing in <Countdown inline /> */}
       </div>
     </Letter>
   );
