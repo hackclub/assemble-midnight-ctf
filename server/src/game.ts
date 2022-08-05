@@ -39,7 +39,11 @@ export default class Game {
     this.initState();
 
     console.log(`🤖 Initialized server`);
-    console.log(`🕓 Starting ${new Date(this.eventStartTime)}`);
+    console.log(
+      `🕓 Starting ${new Date(this.eventStartTime)} (${
+        this.eventStartTime - Date.now()
+      } ms)`
+    );
   }
 
   private async initState() {
