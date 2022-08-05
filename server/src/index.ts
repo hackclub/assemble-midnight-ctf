@@ -1,7 +1,7 @@
 import { Server } from "socket.io";
 import Game from "./game";
 
-const io = new Server(4000, {
+const io = new Server(parseInt(process.env.PORT, 10) || 4000, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
