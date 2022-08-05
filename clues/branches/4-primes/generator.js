@@ -15,7 +15,7 @@ function getPrimes(c) {
       if (i / k === Math.trunc(i / k)) continue nums;
     }
     primes.push(i);
-    if (primes.length === c) return primes;
+    if (primes.length === c) return primes.slice(2);
   }
 }
 

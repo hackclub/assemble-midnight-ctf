@@ -1,3 +1,0 @@
-# Imposter
-
-Someone here is trying to sabatoge their team...
