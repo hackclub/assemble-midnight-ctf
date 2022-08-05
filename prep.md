@@ -1,12 +1,18 @@
+# Prep
+
+## Lighting
+
 Beforehand
-- Apex end 
+
+- Apex end
 - Left bathrooms
-- Meeting rooms
+- Conference rooms
 - Back rooms/corridor
 - Kitchen
 - Makerspace
 
-Midnight
+At Midnight
+
 - Apex right
 - Apex left
 - Left corridor front

@@ -16,6 +16,7 @@ const FLAGDATA: FlagData[] = [
   //   name: "First Flag",
   // },
   {
+    // Easter egg error message clue
     flag: "77",
     name: "Counting Characters",
   },
@@ -26,18 +27,28 @@ const FLAGDATA: FlagData[] = [
   },
   {
     // 2
-    flag: "figma",
-    name: "Anagram Assembly",
+    flag: "phelan",
+    name: "Music Match",
+  },
+  {
+    // 3
+    flag: "978-0-465-00263-4",
+    name: "Book Blanks",
   },
   {
     // 4
     flag: "2113858771200",
     name: "Peculiar Primes",
   },
+  // {
+  //   // 5
+  //   flag: "celeste",
+  //   name: "Celeste?!?",
+  // },
   {
-    // 5
-    flag: "celeste",
-    name: "Celeste?!?",
+    // 7
+    flag: "89685905732105809",
+    name: "Cube Root",
   },
   {
     // 9
@@ -45,12 +56,7 @@ const FLAGDATA: FlagData[] = [
     name: "Room Numbers",
   },
   {
-    // 12
-    flag: "923448647",
-    name: "Cube Cardinals",
-  },
-  {
-    // 13 (FINAL)
+    // 10 (FINAL)
     flag: "cc989e73fcc2f0724e35fc71305d86b7",
     name: "Final Flag",
   },

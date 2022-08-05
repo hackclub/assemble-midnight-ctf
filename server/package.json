@@ -11,7 +11,8 @@
     "start": "NODE_ENV=production node build/index.js",
     "gen-flag": "node -e \"console.log(require('crypto').randomBytes(16).toString('hex'))\"",
     "reset-game": "redis-cli flushall",
-    "new-game": "yarn reset-game && yarn dev"
+    "new-game": "yarn reset-game && yarn dev",
+    "__prod-new-game": "redis-cli -u redis://pd4aec2e3f0e092d2c7d2fe8145c35b52bbbae6719e66904c51149b882c869c38@ec2-52-44-121-55.compute-1.amazonaws.com:22309 flushall && heroku restart"
   },
   "dependencies": {
     "redis": "^4.2.0",
