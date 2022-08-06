@@ -4,6 +4,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { useEffect, useRef, useState } from "react";
 import party from "party-js";
 import { selectRandom } from "../../lib/util";
+import Letter from "components/Letter";
 
 const Game = () => {
   const [socket, _, state] = useSocket();
@@ -68,7 +69,8 @@ const Game = () => {
         </form>
       </div>
 
-      <ul className="mt-64 flex flex-col gap-4 my-3 items-left">
+      <ul className="mt-72 flex flex-col gap-4 my-3 items-left">
+        {state.show_clue && <div className="max-w-md">{state.content}</div>}
         {state.flagsFound
           ?.reverse()
           .map((f: { flag: string; name: string; finder: string }) => (

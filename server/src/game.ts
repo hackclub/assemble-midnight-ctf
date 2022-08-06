@@ -5,7 +5,6 @@ import {
   GAME_DURATION_MINS,
   INTRO_DURATION_MINS,
   INTRO_LETTER,
-  POSTGAME_DURATION_MINS,
   POSTGAME_LETTER_LOSE,
   POSTGAME_LETTER_WIN,
 } from "./config";
@@ -74,7 +73,7 @@ export default class Game {
     const s = await getGameState();
     const n = Date.now();
 
-    if (n > this.gameEndTime && s?.stage === "game") this.moveToPostGame();
+    if (n > this.gameEndTime && s?.stage === "game") this.onGameTimeout();
     else if (n > this.gameStartTime && s?.stage === "intro") this.beginGame();
     else if (n > this.eventStartTime && !s?.stage) this.beginEvent();
   }
@@ -101,7 +100,7 @@ export default class Game {
     this.emitState();
   }
 
-  private async moveToPostGame() {
+  private async onGameTimeout() {
     const s = await getGameState();
 
     const won =
@@ -112,12 +111,13 @@ export default class Game {
       `🔴🔴🔴 GAME OVER 🔴🔴🔴 : Players ${won ? "win 🥳🥳🥳" : "lose 🪦"}`
     );
 
-    const postgameStartTime = Date.now() + minToMs(POSTGAME_DURATION_MINS);
+    // const postgameStartTime = Date.now() + minToMs(POSTGAME_DURATION_MINS);
     await setGameState({
-      stage: "postgame",
+      stage: won ? "postgame" : "game",
       content: won ? POSTGAME_LETTER_WIN : POSTGAME_LETTER_LOSE,
       // endTime: postgameStartTime,
       game_won: won,
+      show_clue: !won,
     });
     // setTimeout(() => this.beginEndgame(), minToMs(POSTGAME_DURATION_MINS));
     this.emitState();
@@ -133,7 +133,7 @@ export default class Game {
 
   public onGameWon() {
     setTimeout(() => {
-      this.moveToPostGame();
+      this.onGameTimeout();
     }, 5000);
   }
 }

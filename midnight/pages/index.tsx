@@ -17,7 +17,9 @@ const Home: NextPage = () => {
   const [joined, setJoined] = useState(false);
 
   useEffect(() => {
-    console.log(`Hi there`);
+    console.log(
+      `There are no keys located within the code of this site. Any efforts to reverse engineer this are futile.`
+    );
   }, []);
 
   const join = (name?: string, existingId?: string) => {
