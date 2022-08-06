@@ -35,11 +35,7 @@ const FLAGDATA: FlagData[] = [
     flag: "2113858771200",
     name: "Peculiar Primes",
   },
-  // {
-  //   // 5
-  //   flag: "celeste",
-  //   name: "Celeste?!?",
-  // },
+  // NO 5
   {
     // 6
     flag: "4783",
@@ -49,6 +45,11 @@ const FLAGDATA: FlagData[] = [
     // 7
     flag: "89685905732105809",
     name: "Cube Root",
+  },
+  {
+    // 8
+    flag: "corgi",
+    name: "Hugo???",
   },
   {
     // 9
