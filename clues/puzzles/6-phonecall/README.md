@@ -2,8 +2,4 @@
 
 SOLUTION: `4783`
 
-Ced's phone number is hidden. When called, Ced reveals clues to other puzzles.
-
-Ced gives some test or riddle and releases the code when appeased. Code is `4783`.
-
-If time expires; ced gives extra clues
+This puzzle relied on an actual staff member at the event, Cedric Hutchings. Participants were supposed to contact Ced through his phone number, hidden in puzzle `8-hiddenmessage`. Ced was instructed to give participants the flag after solving a riddle of his choice.
