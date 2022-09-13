@@ -1,3 +1,0 @@
-# Clues
-
-## EVENT PREP: CLUES TO HIDE
