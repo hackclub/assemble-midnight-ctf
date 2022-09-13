@@ -35,7 +35,6 @@ const FLAGDATA: FlagData[] = [
     flag: "2113858771200",
     name: "Peculiar Primes",
   },
-  // NO 5
   {
     // 6
     flag: "4783",
