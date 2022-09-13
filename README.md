@@ -14,7 +14,7 @@ The web app was designed as a simple Next.js app with a websocket server. When t
 
 ## Post Mortem
 
-This event wasn't a complete failure (mostly due to @sampoder's heroic improv), but it was completely derailed from the start. Here are some of the reasons it went wrong, and lessons learned in puzzle-making.
+This event wasn't a complete failure (mostly due to @sampoder's heroic improv), but it was mostly derailed from the start. Here are some of the reasons it went wrong, and lessons learned in puzzle-making.
 
 1. **The wrong puzzle for the wrong group** - I think the main reason this didn't work at Assemble is because I simply didn't think this through enough from the participant perspective. There were simply too many people in too big of a space working on the puzzle at once. This resulted in a situation where no one knew what was going on, and small isolated teams formed such that each team lacked context and clues known by the other teams. Thus, most of the puzzles were practically unsolvable, and we were forced to abort the event.
 2. **Lack of preparation** - many of the puzzles for this event came together in the two days before the event, and thus we didn't get the opportunity to properly test this on people who knew nothing about the event. This is a big mistake on my part as a lot of issues likely could have been identified and fixed beforehand. Additionally, most of staff were not familiar with the event and thus weren't able to help keep it on track.
