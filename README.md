@@ -1,8 +1,10 @@
 # Assemble Midnight CTF
 
-This event was run at the first midnight of Assemble on Saturday.
+The clock had just struck midnight on Friday when the talent show at Assemble was halted by this interuption:
 
-TODO add some photos
+<img width="600" alt="Screenshot 2022-09-13 at 1 03 32 PM" src="https://user-images.githubusercontent.com/39828164/189813380-e51a86b8-ad7f-4b1c-b90a-b9169b05b371.png">
+
+As our first of two midnight suprises, we took out the lights at Assemble & ran a CTF for participants turn them back on. We made up a backstory about it being the work of a fictionous group labelled "The Organization" and created fake drama. In this repository, we run through the puzzles behind the CTF & what we learnt from it.
 
 ## The Puzzles
 
@@ -12,9 +14,15 @@ This CTF was composed of a simple web app along with a series of approximately 1
 
 The web app was designed as a simple Next.js app with a websocket server. When the event began, participants were directed to `hack.af/midnight` via a mysterious slide. From there, they were introduced to the CTF and were then able to enter flags as the puzzles were solved.
 
+<img width="600" alt="Screenshot 2022-09-13 at 1 04 16 PM" src="https://user-images.githubusercontent.com/39828164/189813481-112d6e84-ab1e-45b9-ae1e-afaf3b447813.png">
+
 ## Post Mortem
 
 This event wasn't a complete failure (mostly due to @sampoder's heroic improv), but it was mostly derailed from the start. Here are some of the reasons it went wrong, and lessons learned in puzzle-making.
+
+<img width="600" alt="Screenshot 2022-08-27 at 12 30 56 AM" src="https://user-images.githubusercontent.com/39828164/189813683-fbb699da-25c0-47ff-bae7-004f8623dcd3.png">
+
+_(Sam shouting about "The Organization" & making a scene)_
 
 1. **The wrong puzzle for the wrong group** - I think the main reason this didn't work at Assemble is because I simply didn't think this through enough from the participant perspective. There were simply too many people in too big of a space working on the puzzle at once. This resulted in a situation where no one knew what was going on, and small isolated teams formed such that each team lacked context and clues known by the other teams. Thus, most of the puzzles were practically unsolvable, and we were forced to abort the event.
 2. **Lack of preparation** - many of the puzzles for this event came together in the two days before the event, and thus we didn't get the opportunity to properly test this on people who knew nothing about the event. This is a big mistake on my part as a lot of issues likely could have been identified and fixed beforehand. Additionally, most of staff were not familiar with the event and thus weren't able to help keep it on track.
